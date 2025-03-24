@@ -9,4 +9,5 @@ use App\Http\Controllers\AuthController;
 Route::middleware(['api'])->group(function () {
     Route::resource('testsuites', TestSuitesController::class);
     Route::resource('testsuites.testcases', TestCasesController::class)->shallow();
+    Route::post('/login', [AuthController::class, 'login']);
 });
