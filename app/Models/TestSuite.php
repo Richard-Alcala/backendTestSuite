@@ -12,4 +12,9 @@ class TestSuite extends Model
         'platform', 
         'status'
     ];
+
+    public function testcases()
+    {
+        return $this->hasMany(TestCase::class);
+    }
 }
