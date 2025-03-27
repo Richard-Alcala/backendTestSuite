@@ -1,5 +1,4 @@
 # Backend Test Suite Documentation
----
 
 ## Requirements to Install the Backend
 
