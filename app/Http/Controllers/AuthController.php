@@ -8,9 +8,6 @@ use Illuminate\Support\Facades\Log;
 
 class AuthController extends Controller
 {
-    /**
-     * Handle user login and return a token.
-     */
     public function login(Request $request)
     {
         try {
@@ -47,5 +44,14 @@ class AuthController extends Controller
                 'message' => 'An error occurred during login. Please try again later.',
             ], 500);
         }
+    }
+
+    public function logout(Request $request)
+    {
+        $request->user()->tokens->each(function ($token) {
+            $token->delete();
+        });
+
+        return response()->json(['message' => 'Logged out successfully'], 200);
     }
 }
